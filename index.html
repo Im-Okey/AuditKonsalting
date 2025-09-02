@@ -162,11 +162,9 @@
 </head>
 
 <body class="bg-[var(--background-color)]">
-<!-- Хедер -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
   <div class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
-      <!-- Логотип -->
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -179,7 +177,6 @@
         </div>
       </div>
 
-      <!-- Навигация -->
       <nav class="hidden lg:flex items-center gap-8">
         <a class="nav-link" href="#about">О компании</a>
         <a class="nav-link" href="#services">Услуги</a>
@@ -189,16 +186,13 @@
         <a class="nav-link" href="#contacts">Контакты</a>
       </nav>
 
-      <!-- Кнопка заказа -->
-      <button class="hidden md:block button_primary">Заказать консультацию</button>
+      <a href="tel:+375214589583" class="hidden md:block button_primary">+375 (214) 58 95 83</a>
 
-      <!-- Мобильное меню -->
       <button class="lg:hidden text-2xl mobile-menu-toggle" aria-label="Открыть меню">☰</button>
     </div>
   </div>
 </header>
 
-<!-- Мобильное меню -->
 <div class="mobile-menu" aria-hidden="true">
   <div class="flex justify-between items-center mb-8">
     <div class="flex items-center gap-3">
@@ -221,11 +215,10 @@
     <a class="text-lg font-medium text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="#contacts">Контакты</a>
   </nav>
   
-  <button class="button_primary w-full mt-8">Заказать консультацию</button>
+  <a href="tel:+375214589583" class="button_primary w-full mt-8 flex items-center justify-center">+375 (214) 58 95 83</a>
 </div>
 
 <main>
-<!-- Герой секция -->
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0">
     <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
@@ -238,8 +231,8 @@
     <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Комплексные решения в области аудита, бухгалтерского учета и налогового консультирования</p>
     
     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <button class="button_primary">Получить консультацию</button>
-      <button class="button_secondary text-white border-white hover:bg-white hover:text-[var(--primary-color)]">Узнать больше</button>
+      <a href="tel:+375214589583" class="button_primary">Получить консультацию</a>
+      <a href="#about" class="button_secondary text-white border-white hover:bg-white hover:text-[var(--primary-color)]">Узнать больше</a>
     </div>
     
     <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -258,7 +251,7 @@
     </div>
   </div>
   
-  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+  <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2">
     <div class="animate-bounce">
       <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -267,7 +260,6 @@
   </div>
 </section>
 
-<!-- О компании -->
 <section id="about" class="section-padding bg-white">
   <div class="container mx-auto px-4">
     <h2 class="typography_h2">О нашей компании</h2>
@@ -292,40 +284,39 @@
           зарекомендовали себя как надежный и ответственный партнер для бизнеса.
         </p>
         
-        <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)]">
-              ✓
-            </div>
-            <span class="text-sm font-medium">Профессионализм</span>
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-7 h-7 md:w-8 md:h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)] flex-shrink-0 text-sm md:text-base">
+            ✓
           </div>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)]">
-              ✓
-            </div>
-            <span class="text-sm font-medium">Конфиденциальность</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)]">
-              ✓
-            </div>
-            <span class="text-sm font-medium">Индивидуальный подход</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)]">
-              ✓
-            </div>
-            <span class="text-sm font-medium">Современные технологии</span>
-          </div>
+          <span class="text-xs md:text-sm font-medium">Профессионализм</span>
         </div>
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-7 h-7 md:w-8 md:h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)] flex-shrink-0 text-sm md:text-base">
+            ✓
+          </div>
+          <span class="text-xs md:text-sm font-medium">Конфиденциальность</span>
+        </div>
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-7 h-7 md:w-8 md:h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)] flex-shrink-0 text-sm md:text-base">
+            ✓
+          </div>
+          <span class="text-xs md:text-sm font-medium">Индивидуальный подход</span>
+        </div>
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-7 h-7 md:w-8 md:h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)] flex-shrink-0 text-sm md:text-base">
+            ✓
+          </div>
+          <span class="text-xs md:text-sm font-medium">Современные технологии</span>
+        </div>
+      </div>
         
-        <button class="button_primary">Узнать больше о нас</button>
+        <a href="tel:+375297133784" class="button_primary">Узнать больше о нас</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Документы -->
 <section id="documents" class="section-padding bg-[var(--background-color)]">
   <div class="container mx-auto px-4">
     <div class="text-center max-w-3xl mx-auto mb-16">
@@ -341,7 +332,23 @@
           </svg>
         </div>
         <h3 class="text-lg font-semibold mb-2">Свидетельство о регистрации</h3>
-        <p class="text-sm text-[var(--text-secondary)] mb-4">Официальное свидетельство о государственной регистрации</p>
+        <p class="text-sm text-[var(--text-secondary)] mb-4">Свидетельство о государственной регистрации коммерческой организации</p>
+        <a href="#" class="text-[var(--primary-color)] font-semibold flex items-center gap-2 group-hover:underline">
+          Скачать PDF
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+        </a>
+      </div>
+      
+      <div class="document-card group">
+        <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Свидетельство о регистрации</h3>
+        <p class="text-sm text-[var(--text-secondary)] mb-4">Свидетельство о государственной регистрации юридического лица</p>
         <a href="#" class="text-[var(--primary-color)] font-semibold flex items-center gap-2 group-hover:underline">
           Скачать PDF
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -372,24 +379,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
         </div>
-        <h3 class="text-lg font-semibold mb-2">Лицензии</h3>
-        <p class="text-sm text-[var(--text-secondary)] mb-4">Разрешительные документы и лицензии</p>
-        <a href="#" class="text-[var(--primary-color)] font-semibold flex items-center gap-2 group-hover:underline">
-          Скачать PDF
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-          </svg>
-        </a>
-      </div>
-      
-      <div class="document-card group">
-        <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-        </div>
         <h3 class="text-lg font-semibold mb-2">Реквизиты</h3>
-        <p class="text-sm text-[var(--text-secondary)] mb-4">Банковские реквизиты и контактная информация</p>
+        <p class="text-sm text-[var(--text-secondary)] mb-4">Полные данные компании</p>
         <a href="#" class="text-[var(--primary-color)] font-semibold flex items-center gap-2 group-hover:underline">
           Скачать PDF
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -401,7 +392,6 @@
   </div>
 </section>
 
-<!-- Услуги -->
 <section id="services" class="section-padding bg-white">
   <div class="container mx-auto px-4">
     <div class="text-center max-w-3xl mx-auto mb-16">
@@ -410,7 +400,6 @@
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Услуги остаются без изменений -->
       <div class="card">
         <div class="service-icon">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -474,7 +463,6 @@
   </div>
 </section>
 
-<!-- Отрасли -->
 <section id="industries" class="section-padding bg-[var(--background-color)]">
   <div class="container mx-auto px-4">
     <div class="text-center max-w-3xl mx-auto mb-16">
@@ -483,7 +471,6 @@
     </div>
     
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-      <!-- Отрасли остаются без изменений -->
       <div class="text-center">
         <div class="industry-icon mx-auto">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -541,7 +528,6 @@
   </div>
 </section>
 
-<!-- Сертификаты -->
 <section id="certificates" class="section-padding bg-white">
   <div class="container mx-auto px-4">
     <div class="text-center max-w-3xl mx-auto mb-16">
@@ -595,7 +581,6 @@
 
 </main>
 
-<!-- Модальное окно для сертификатов -->
 <div class="modal" id="certificates-modal">
   <div class="modal-content">
     <div class="p-6 border-b border-gray-200 flex justify-between items-center">
@@ -604,17 +589,14 @@
     </div>
     <div class="p-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="certificates-container">
-        <!-- Сертификаты будут загружены динамически -->
       </div>
     </div>
   </div>
 </div>
 
-<!-- Футер -->
 <footer id="contacts" class="bg-[var(--text-primary)] text-white">
   <div class="container mx-auto px-4 py-8 md:py-12">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-      <!-- Информация о компании -->
       <div class="text-center md:text-left">
         <div class="flex justify-center md:justify-start items-center gap-3 mb-4">
           <h3 class="text-xl font-bold">ООО АудитКонсалтинг</h3>
@@ -623,7 +605,6 @@
         <p class="text-gray-400 text-sm">УНП: 390260040</p>
       </div>
 
-      <!-- Контакты -->
       <div class="text-center md:text-left -ml-[15px]">
         <h4 class="text-lg font-semibold mb-4 flex items-center justify-center md:justify-start gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -631,16 +612,15 @@
           </svg>
           Контакты
         </h4>
-        <div class="space-y-1 text-gray-400 text-sm">
-          <p>+375 (214) 58-95-83</p>
-          <p>+375 (214) 58-35-39</p>
-          <p>+375 (29) 713-37-84</p>
-          <p>+375 (29) 713-37-85</p>
-          <p>+375 (29) 514-37-87</p>
+        <div class="space-y-1 text-gray-400 text-sm ml-[10px] md:ml-0">
+          <p><a href="tel:+375214589583">+375 (214) 58-95-83</a></p>
+          <p></p><a href="tel:+375214583539">+375 (214) 58-35-39</a></p>
+          <p></p><a href="tel:+375297133784">+375 (29) 713-37-84</a></p>
+          <p></p><a href="tel:+375297133785">+375 (29) 713-37-85</a></p>
+          <p></p><a href="tel:+375295143787">+375 (29) 514-37-87</a></p>
         </div>
       </div>
 
-      <!-- Адрес -->
       <div class="text-center md:text-left -ml-[15px]">
         <h4 class="text-lg font-semibold mb-4 flex items-center justify-center md:justify-start gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -649,7 +629,7 @@
             </svg>
             Адрес
         </h4>
-        <div class="space-y-1 text-gray-400 text-sm">
+        <div class="space-y-1 text-gray-400 text-sm ml-[20px] md:ml-0">
             <p>211440, Витебская обл.,</p>
             <p>г. Новополоцк,</p>
             <p>ул. Олимпийская, д. 2, каб. 1105</p>
@@ -662,7 +642,6 @@
         </div>
         </div>
 
-      <!-- Режим работы -->
       <div class="text-center md:text-left -ml-[15px]">
         <h4 class="text-lg font-semibold mb-4 flex items-center justify-center md:justify-start gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -670,15 +649,13 @@
           </svg>
           Режим работы
         </h4>
-        <div class="text-gray-400 text-sm">
+        <div class="text-gray-400 text-sm ml-[20px] md:ml-0">
           <p>Пн-Пт: 9:00 - 18:00</p>
-          <p>Сб: 10:00 - 15:00</p>
-          <p>Вс: выходной</p>
+          <p>Сб-Вс: выходной</p>
         </div>
       </div>
     </div>
 
-    <!-- Копирайт -->
     <div class="border-t border-white/10 mt-8 pt-8 text-center text-gray-400 text-sm">
       <p>© 2003 - 2025, ООО «АудитКонсалтинг». Все права защищены.</p>
     </div>
@@ -688,7 +665,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // Мобильное меню
   const toggles = Array.from(document.querySelectorAll('.mobile-menu-toggle'));
   const mobileMenu = document.querySelector('.mobile-menu');
   const closeBtn = document.querySelector('.mobile-menu-close');
@@ -720,7 +696,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') closeMenu();
   });
 
-  // Модальное окно для сертификатов
   const modal = document.getElementById('certificates-modal');
   const modalClose = document.querySelector('.modal-close');
   const certificatesContainer = document.getElementById('certificates-container');
@@ -784,7 +759,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
   });
 
-  // Адаптивность для мобильного меню
   const mq = window.matchMedia('(min-width:1024px)');
   function mqHandler(e) {
     if (e.matches) closeMenu();
