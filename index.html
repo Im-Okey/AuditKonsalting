@@ -6,7 +6,7 @@
 <title>ООО АудитКонсалтинг - Аудиторские и консалтинговые услуги</title>
 <meta name="description" content="Профессиональные аудиторские и консалтинговые услуги в Беларуси. Аудит, бухгалтерский учет, налоговое консультирование, МСФО."/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link rel="icon" type="image/x-icon" href="/static/img/icon.svg" />
+<link rel="icon" type="image/x-icon" href="static/img/icon.svg" />
 <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -167,7 +167,7 @@
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
       <div class="w-14 h-14">
-        <img src="/static/img/icon.svg" alt="АудитКонсалтинг" class="w-full h-full">
+        <img src="static/img/icon.svg" alt="АудитКонсалтинг" class="w-full h-full">
       </div>
         <div>
           <h1 class="text-xl font-bold text-[var(--text-primary)]">ООО АудитКонсалтинг</h1>
@@ -195,7 +195,7 @@
   <div class="flex justify-between items-center mb-8">
     <div class="flex items-center gap-3">
       <div class="w-14 h-14">
-        <img src="/static/img/icon.svg" alt="АудитКонсалтинг" class="w-full h-full">
+        <img src="static/img/icon.svg" alt="АудитКонсалтинг" class="w-full h-full">
       </div>
       <h2 class="text-xl font-bold">ООО АудитКонсалтинг</h2>
     </div>
@@ -920,14 +920,14 @@ document.addEventListener('DOMContentLoaded', function () {
   
   const certificates = {
     bukova: [
-      { title: 'Сертификат МСФО №019', image: '/static/img/person2/mfso.jpg' },
-      { title: 'приложение к сертификату МСФО', image: '/static/img/person2/practica_mfso.png' },
-      { title: 'практика трансформация МСФО', image: '/static/img/person2/dop_mfso.jpg' }
+      { title: 'Сертификат МСФО №019', image: 'static/img/person2/mfso.jpg' },
+      { title: 'приложение к сертификату МСФО', image: 'static/img/person2/practica_mfso.png' },
+      { title: 'практика трансформация МСФО', image: 'static/img/person2/dop_mfso.jpg' }
     ],
     butko: [
-      { title: 'Сертификат МСФО №019', image: '/static/img/person1/mfso.jpg' },
-      { title: 'приложение к сертификату МСФО', image: '/static/img/person1/practica_mfso.png' },
-      { title: 'практика трансформация МСФО', image: '/static/img/person1/dop_mfso.jpg' }
+      { title: 'Сертификат МСФО №019', image: 'static/img/person1/mfso.jpg' },
+      { title: 'приложение к сертификату МСФО', image: 'static/img/person1/practica_mfso.png' },
+      { title: 'практика трансформация МСФО', image: 'static/img/person1/dop_mfso.jpg' }
     ]
   };
 
@@ -1007,7 +1007,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const filename = this.getAttribute('data-filename');
         
         const downloadLink = document.createElement('a');
-        downloadLink.href = '/static/documents/' + filename;
+        downloadLink.href = 'static/documents/' + filename;
         downloadLink.download = filename;
         document.body.appendChild(downloadLink);
         downloadLink.click();
