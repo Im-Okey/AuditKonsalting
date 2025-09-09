@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ООО АудитКонсалтинг - Аудиторские и консалтинговые услуги</title>
+<meta name="description" content="Профессиональные аудиторские и консалтинговые услуги в Беларуси. Аудит, бухгалтерский учет, налоговое консультирование, МСФО."/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link rel="icon" type="image/x-icon" href="static/img/icon.svg" />
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<style type="text/tailwindcss">
+  :root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary-color: #e0f2fe;
+    --accent-color: #7dd3fc;
+    --background-color: #f8fafc;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  
+  .gradient-bg {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-300;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow);
+  }
+  
+  .button_primary {
+    @apply gradient-bg hover:opacity-90 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .button_secondary {
+    @apply bg-white text-[var(--primary-color)] border-2 border-[var(--primary-color)] font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:bg-[var(--primary-color)] hover:text-white;
+  }
+  
+  .section-padding {
+    @apply py-16 lg:py-20;
+  }
+  
+  .typography_h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-6;
+  }
+  
+  .typography_h2 {
+    @apply text-3xl md:text-4xl font-bold mb-8 text-center;
+  }
+  
+  .typography_h3 {
+    @apply text-xl md:text-2xl font-semibold mb-4;
+  }
+  
+  .typography_body {
+    @apply text-base text-[var(--text-secondary)] leading-relaxed;
+  }
+  
+  .nav-link {
+    @apply relative font-medium text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors duration-300;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .hero-overlay {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 100%);
+  }
+  
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .stat-card {
+    @apply bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100;
+  }
+  
+  .stat-number {
+    @apply text-3xl md:text-4xl font-bold gradient-text mb-2;
+  }
+  
+  .service-icon {
+    @apply w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center text-white mb-4;
+  }
+  
+  .industry-icon {
+    @apply w-12 h-12 rounded-xl bg-[var(--secondary-color)] text-[var(--primary-color)] flex items-center justify-center mb-3;
+  }
+  
+  .testimonial-card {
+    @apply bg-white rounded-2xl p-6 shadow-lg border border-gray-100;
+  }
+  
+  .mobile-menu {
+    @apply fixed inset-0 z-50 bg-white transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto p-6;
+  }
+  
+  .mobile-menu.active {
+    @apply translate-x-0;
+  }
+  
+  .modal {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 opacity-0 pointer-events-none transition-opacity duration-300;
+  }
+  
+  .modal.active {
+    @apply opacity-100 pointer-events-auto;
+  }
+  
+  .modal-content {
+    @apply bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto;
+  }
+  
+  .document-card {
+    @apply bg-white rounded-xl p-6 border-2 border-[var(--secondary-color)] hover:border-[var(--primary-color)] transition-all duration-300 hover:shadow-lg;
+  }
+  html {
+  scroll-behavior: smooth;
+}
+</style>
+</head>
+
+<body class="bg-[var(--background-color)]">
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+      <div class="w-14 h-14">
+        <img src="static/img/icon.svg" alt="АудитКонсалтинг" class="w-full h-full">
+      </div>
+        <div>
+          <h1 class="text-xl font-bold text-[var(--text-primary)]">ООО АудитКонсалтинг</h1>
+          <p class="text-xs text-[var(--text-secondary)]">Аудиторские и профессиональные услуги</p>
+        </div>
+      </div>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a class="nav-link" href="#about">О компании</a>
+        <a class="nav-link" href="#services">Услуги</a>
+        <a class="nav-link" href="#documents">Документы</a>
+        <a class="nav-link" href="#industries">Отрасли</a>
+        <a class="nav-link" href="#certificates">Сертификаты</a>
+        <a class="nav-link" href="#contacts">Контакты</a>
+      </nav>
+
+      <a href="tel:+375214589583" class="hidden md:block button_primary">+375 (29) 713 37 84</a>
+
+      <button class="lg:hidden text-2xl mobile-menu-toggle" aria-label="Открыть меню">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" aria-hidden="true">
+  <div class="flex justify-between items-center mb-8">
+    <div class="flex items-center gap-3">
+      <div class="w-14 h-14">
+        <img src="static/img/icon.svg" alt="АудитКонсалтинг" class="w-full h-full">
+      </div>
+      <h2 class="text-xl font-bold">ООО АудитКонсалтинг</h2>
+    </div>
+    <button class="mobile-menu-close text-2xl" aria-label="Закрыть меню">×</button>
+  </div>
+
+  <nav class="flex flex-col gap-6">
+    <a class="text-lg font-medium text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="#about">О компании</a>
+    <a class="text-lg font-medium text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="#services">Услуги</a>
+    <a class="text-lg font-medium text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="#documents">Документы</a>
+    <a class="text-lg font-medium text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="#industries">Отрасли</a>
+    <a class="text-lg font-medium text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="#certificates">Сертификаты</a>
+    <a class="text-lg font-medium text-[var(--text-primary)] hover:text-[var(--primary-color)] transition-colors" href="#contacts">Контакты</a>
+  </nav>
+  
+  <a href="tel:+375214589583" class="button_primary w-full mt-8 flex items-center justify-center">+375 (29) 713 37 84</a>
+</div>
+
+<main>
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+         alt="Аудит и консалтинг" class="w-full h-full object-cover">
+    <!-- <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+     alt="Весы правосудия" class="w-full h-full object-cover"> -->
+     <!-- <img src="https://zefirka.club/uploads/posts/2022-10/1666328536_1-zefirka-club-p-femida-oboi-1.jpg" 
+     alt="Весы правосудия" class="w-full h-full object-cover"> -->
+     <!-- <img src="https://www.undp.org/sites/g/files/zskgke326/files/migration/asia_pacific_fairbiz/figure-justice-holding-scales-sword.jpg" 
+     alt="Весы правосудия" class="w-full h-full object-cover"> -->
+    <div class="absolute inset-0 hero-overlay"></div>
+  </div>
+  
+  
+  <div class="relative mt-6 z-10 text-center text-white container mx-auto px-4">
+      <h1 class="typography_h1">Аудиторские и <span class="gradient-text">профессиональные услуги</span> для вашего бизнеса</h1>
+    <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Комплексные решения в области аудита, бухгалтерского учета и налогового консультирования</p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="tel:+375214589583" class="button_primary w-full sm:w-auto max-w-xs">Получить консультацию</a>
+        <a href="#about" class="button_secondary text-white border-white hover:bg-white hover:text-[var(--primary-color)] w-full sm:w-auto max-w-xs">Узнать больше</a>
+      </div>
+
+      <div class="mt-6 flex flex-col sm:flex-row items-center sm:items-start justify-center gap-2 text-lg font-medium">
+        <a href="tel:+375291112233" class="flex items-center gap-2 hover:underline">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[var(--primary-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h1.28a1 1 0 01.948.684l1.518 4.553a1 1 0 01-.21.98l-1.2 1.2a16 16 0 007.071 7.071l1.2-1.2a1 1 0 01.98-.21l4.553 1.518a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V5z"/>
+          </svg>
+          +375 (29) 713 37 85
+        </a>
+        <a href="tel:+375291234567" class="flex items-center gap-2 hover:underline">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[var(--primary-color)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h1.28a1 1 0 01.948.684l1.518 4.553a1 1 0 01-.21.98l-1.2 1.2a16 16 0 007.071 7.071l1.2-1.2a1 1 0 01.98-.21l4.553 1.518a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V5z"/>
+          </svg>
+          +375 (29) 514 37 87
+        </a>
+      </div>
+      
+      <div class="mt-16 mb-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="stat-card">
+          <div class="stat-number">20+</div>
+          <p class="text-[var(--text-secondary)]">Лет успешной работы</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <p class="text-[var(--text-secondary)]">Довольных клиентов</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <p class="text-[var(--text-secondary)]">Положительных отзывов</p>
+        </div>
+      </div>
+  </div>
+  
+  <div class="absolute bottom-24 left-1/2 transform -translate-x-1/2 hidden md:block">
+      <div class="animate-bounce">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+  </div>
+</section>
+
+<section id="about" class="section-padding bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="typography_h2">О нашей компании</h2>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="relative">
+          <img src="static/img/info.jpg" 
+              alt="Наша команда" class="rounded-2xl shadow-2xl w-full h-80 object-cover">
+          <div class="absolute -bottom-6 -right-6 bg-[var(--primary-color)] text-white p-6 rounded-2xl shadow-xl">
+            <div class="text-3xl font-bold">2002</div>
+            <div class="text-sm">Год основания</div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="typography_h3">Ваш надежный партнер в сфере аудита и консалтинга</h3>
+        <p class="typography_body mb-6">
+          ООО АудитКонсалтинг – ведущая аудиторская компания предоставляющая широкий спектр услуг 
+          в области аудита, бухгалтерии и налогообложения. Мы работаем с 2002 года и за это время 
+          зарекомендовали себя как надежный и ответственный партнер для бизнеса.
+        </p>
+        
+      <div class="grid grid-cols-2 gap-3 mb-6">
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-7 h-7 md:w-8 md:h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)] flex-shrink-0 text-sm md:text-base">
+            ✓
+          </div>
+          <span class="text-xs md:text-sm font-medium">Профессионализм</span>
+        </div>
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-7 h-7 md:w-8 md:h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)] flex-shrink-0 text-sm md:text-base">
+            ✓
+          </div>
+          <span class="text-xs md:text-sm font-medium">Конфиденциальность</span>
+        </div>
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-7 h-7 md:w-8 md:h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)] flex-shrink-0 text-sm md:text-base">
+            ✓
+          </div>
+          <span class="text-xs md:text-sm font-medium">Индивидуальный подход</span>
+        </div>
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-7 h-7 md:w-8 md:h-8 bg-[var(--secondary-color)] rounded-lg flex items-center justify-center text-[var(--primary-color)] flex-shrink-0 text-sm md:text-base">
+            ✓
+          </div>
+          <span class="text-xs md:text-sm font-medium">Современные технологии</span>
+        </div>
+      </div>
+        
+        <a href="tel:+375297133784" class="button_primary">Узнать больше о нас</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="documents" class="section-padding bg-[var(--background-color)]">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="typography_h2">Корпоративные документы</h2>
+      <p class="text-xl text-[var(--text-secondary)]">Официальные документы компании для скачивания</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="document-card group">
+          <div class="flex items-start mb-4">
+              <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mr-4 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+              </div>
+              <h3 class="text-lg font-semibold pt-1">Свидетельство о регистрации</h3>
+          </div>
+          <p class="text-sm text-[var(--text-secondary)] mb-4">Свидетельство о государственной регистрации коммерческой организации</p>
+          <a href="#" class="download-link text-[var(--primary-color)] font-semibold flex items-center gap-2 group-hover:underline" data-filename="Свидетельство_о_регистрации1.jpg">
+              Скачать JPG
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+          </a>
+      </div>
+
+      <div class="document-card group">
+          <div class="flex items-start mb-4">
+              <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mr-4 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+              </div>
+              <h3 class="text-lg font-semibold pt-1">Свидетельство о регистрации</h3>
+          </div>
+          <p class="text-sm text-[var(--text-secondary)] mb-4">Свидетельство о государственной регистрации коммерческой организации</p>
+          <a href="#" class="download-link text-[var(--primary-color)] font-semibold flex items-center gap-2 group-hover:underline" data-filename="Свидетельство_о_регистрации2.jpg">
+              Скачать JPG
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+          </a>
+      </div>
+
+      <div class="document-card group">
+          <div class="flex items-start mb-4">
+              <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mr-4 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+              </div>
+              <h3 class="text-lg font-semibold pt-1">Выдержка из Устава</h3>
+          </div>
+          <p class="text-sm text-[var(--text-secondary)] mb-4">Основные положения устава компании</p>
+          <a href="#" class="download-link text-[var(--primary-color)] font-semibold flex items-center gap-2 group-hover:underline" data-filename="Выдержка_из_Устава.pdf">
+              Скачать PDF
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+          </a>
+      </div>
+
+      <div class="document-card group">
+          <div class="flex items-start mb-4">
+              <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center text-white mr-4 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+              </div>
+              <h3 class="text-lg font-semibold pt-1">Реквизиты</h3>
+          </div>
+          <p class="text-sm text-[var(--text-secondary)] mb-4">Реквизиты и полные данные компании</p>
+          <a href="#" class="download-link text-[var(--primary-color)] font-semibold flex items-center gap-2 group-hover:underline" data-filename="Реквизиты.pdf">
+              Скачать PDF
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+          </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section-padding bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="typography_h2">Наши услуги</h2>
+      <p class="text-xl text-[var(--text-secondary)]">Комплексные решения для вашего бизнеса</p>
+    </div>
+
+    
+    
+    <div class="mb-12"> 
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card bg-white rounded-xl p-6 shadow-md">
+              <div class="flex items-start mb-4">
+                  <div class="service-icon p-3 rounded-lg mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800 pt-2">Обязательный аудит</h3>
+              </div>
+              <p class="typography_body">Подтверждение достоверности годовой бухгалтерской (финансовой) отчетности, а также отдельных показателей финансовой и хозяйственной деятельности организации в случаях, предусмотренных законодательством.</p>
+          </div>
+          
+          <div class="card bg-white rounded-xl p-6 shadow-md">
+              <div class="flex items-start mb-4">
+                  <div class="service-icon p-3 rounded-lg mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800 pt-2">Инициативный аудит</h3>
+              </div>
+              <p class="typography_body">Аудит по согласованным с Клиентом вопросам, непосредственно связанными с финансово-хозяйственной деятельностью предприятия, а также проверка соблюдения определенных процедур, норм и правил</p>
+          </div>
+          
+          <div class="card bg-white rounded-xl p-6 shadow-md">
+              <div class="flex items-start mb-4">
+                  <div class="service-icon p-3 rounded-lg mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800 pt-2">Налоговый аудит</h3>
+              </div>
+              <p class="typography_body">Комплексная проверка финансовой деятельности предприятия с целью выявления фактов неправильного ведения налогового учета, неполной либо излишней уплаты налогов и взносов, ошибок при составлении налоговых деклараций.</p>
+          </div>
+          
+          <div class="card bg-white rounded-xl p-6 shadow-md">
+              <div class="flex items-start mb-4">
+                  <div class="service-icon p-3 rounded-lg mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800 pt-2">Поэтапный аудит</h3>
+              </div>
+              <p class="typography_body">Проведение аудита и формирование отчета по итогам каждого аудируемого периода по удобному для Вас графику, что способствует наилучшей обработке отчетных материалов сотрудниками Вашей бухгалтерской службы.</p>
+          </div>
+          
+          <div class="card bg-white rounded-xl p-6 shadow-md">
+              <div class="flex items-start mb-4">
+                  <div class="service-icon p-3 rounded-lg mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800 pt-2">Аудит по специальному заданию</h3>
+              </div>
+              <p class="typography_body">Аудиторская проверка с целью выражения мнения о достоверности проверяемого участка или показателя аудируемого лица, а также соответствие порядка его расчета или формирования требованиям законодательства Республики Беларусь.</p>
+          </div>
+          
+          <div class="card bg-white rounded-xl p-6 shadow-md">
+              <div class="flex items-start mb-4">
+                  <div class="service-icon p-3 rounded-lg mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                  </div>
+                  <h3 class="text-xl font-semibold text-gray-800 pt-2">Восстановление учета</h3>
+              </div>
+              <p class="typography_body">Приведение бухгалтерской документации в соответствие с законодательством. 
+                  Устранение штрафов, пеней и других санкций со стороны контролирующих органов. 
+                  Получение контроля над финансами и обеспечение прозрачности учета для руководства. 
+                  Создание надежной основы для принятия стратегических решений и планирования дальнейшего развития компании.</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="mb-12"> 
+      <div class="space-y-6">
+        <div class="bg-white border-l-4 border-blue-600 pl-6 py-4">
+          <p class="text-gray-700">
+            В ходе оказания услуг нашей компанией мы выявляем и помогаем устранить существенные ошибки, 
+            которые влияют на достоверность составленной финансовой (бухгалтерской) отчетности, 
+            а также определяем «сложные» места с точки зрения налогообложения.
+          </p>
+        </div>
+
+        <div class="bg-white border-l-4 border-green-600 pl-6 py-4">
+          <p class="text-gray-700">
+            Важнейшей задачей аудиторов нашей компании является информационное и практическое содействие 
+            Заказчикам в вопросах бухгалтерского учета и налоговых правоотношений.
+          </p>
+        </div>
+
+        <div class="bg-white border-l-4 border-purple-600 pl-6 py-4">
+          <p class="text-gray-700">
+            При оказании аудиторских услуг мы предоставляем оперативную консультационную помощь в решении 
+            сложных задач, стоящих перед нашими Клиентами, в т.ч. проверку правильности налогообложения, 
+            а также оптимизацию налогообложения с учетом особенностей хозяйственной деятельности Заказчиков. 
+            Специалисты нашей компании предоставят Вам подробные разъяснения и рекомендации по устранению ошибок.
+          </p>
+        </div>
+
+        <div class="bg-blue-50 rounded-2xl p-6">
+          <div class="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <div>
+              <h4 class="font-semibold text-blue-800 mb-2">Бесплатные консультации</h4>
+              <p class="text-blue-700">
+                Заключив с нашей компанией договор на оказание аудиторских услуг Вы приобретаете возможность 
+                получать бесплатные консультации по текущим вопросам бухгалтерского учета, налогообложения 
+                и оформления первичных документов.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-2xl p-6">
+          <div class="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <div>
+              <h4 class="font-semibold text-gray-800 mb-2">Эффективный поэтапный аудит</h4>
+              <p class="text-gray-700">
+                Наиболее эффективным является поэтапное проведение аудита, дающее возможность своевременно 
+                внести корректировки и учесть их при составлении годовой бухгалтерской отчетности, 
+                а также предотвратить возможные штрафные санкции.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-16">
+      <h3 class="text-2xl font-semibold mb-8 text-center">Профессиональные услуги</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+
+
+        <div class="card bg-white rounded-xl p-6 shadow-md">
+            <div class="flex items-start mb-4">
+                <div class="service-icon p-3 rounded-lg mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 pt-2">Бухгалтерский учет</h3>
+            </div>
+            <p class="typography_body">Ведение бухгалтерского учета, составление отчетности и налоговых деклараций</p>
+        </div>
+
+        <div class="card bg-white rounded-xl p-6 shadow-md">
+            <div class="flex items-start mb-4">
+                <div class="service-icon p-3 rounded-lg mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 pt-2">Восстановление учета</h3>
+            </div>
+            <p class="typography_body">Постановка и восстановление бухгалтерского учета</p>
+        </div>
+
+        <div class="card bg-white rounded-xl p-6 shadow-md">
+            <div class="flex items-start mb-4">
+                <div class="service-icon p-3 rounded-lg mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 pt-2">Анализ деятельности</h3>
+            </div>
+            <p class="typography_body">Анализ хозяйственной деятельности и оценка рисков</p>
+        </div>
+
+        <div class="card bg-white rounded-xl p-6 shadow-md">
+            <div class="flex items-start mb-4">
+                <div class="service-icon p-3 rounded-lg mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 pt-2">Консультации</h3>
+            </div>
+            <p class="typography_body">Профессиональные консультации по бухучету и налогам</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industries" class="section-padding bg-[var(--background-color)]">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="typography_h2">Отрасли нашей работы</h2>
+      <p class="text-xl text-[var(--text-secondary)]">Мы работаем с предприятиями различных отраслей экономики</p>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+      <div class="text-center">
+        <div class="industry-icon mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+        </div>
+        <h3 class="font-semibold">Производство</h3>
+      </div>
+      
+      <div class="text-center">
+        <div class="industry-icon mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+        </div>
+        <h3 class="font-semibold">Транспорт</h3>
+      </div>
+      
+      <div class="text-center">
+        <div class="industry-icon mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+          </svg>
+        </div>
+        <h3 class="font-semibold">Строительство</h3>
+      </div>
+      
+      <div class="text-center">
+        <div class="industry-icon mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 01118 0z" />
+          </svg>
+        </div>
+        <h3 class="font-semibold">Финансы</h3>
+      </div>
+      
+      <div class="text-center">
+        <div class="industry-icon mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+        </div>
+        <h3 class="font-semibold">Здравоохранение</h3>
+      </div>
+      
+      <div class="text-center">
+        <div class="industry-icon mx-auto">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+        </div>
+        <h3 class="font-semibold">Торговля</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certificates" class="section-padding bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="typography_h2">Трансформация МФСО</h2>
+      <p class="text-xl text-[var(--text-secondary)]">Профессиональная квалификация и признание</p>
+    </div>
+
+    <div class="bg-blue-50 rounded-2xl p-8 mb-12">
+      <div class="flex items-start">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600 mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <div>
+          <h3 class="text-xl font-semibold text-blue-800 mb-4">Квалификация специалистов</h3>
+          <p class="text-blue-700 mb-4">
+            Квалифицированные специалисты нашей компании оказывают услуги по аудиту и трансформации 
+            белорусской отчетности в отчетность, составленную в соответствии с международными 
+            стандартами финансовой отчетности (МСФО).
+          </p>
+          <p class="text-blue-700 font-semibold">
+            Специальным СЕРТИФИКАТОМ, позволяющим осуществлять аудит и трансформацию по МСФО, обладают:
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="card">
+        <div class="flex items-start gap-4 md:gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-2xl flex items-center justify-center text-white text-xl md:text-2xl font-bold">
+              БС
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-lg md:text-xl font-semibold mb-2">Букова Ольга Сергеевна</h3>
+            
+            <div class="md:hidden">
+              <p class="typography_body mb-3">
+                Аудитор с 2003 года. Сертифицированный специалист по МСФО. 
+                Сертификат №019 Центра повышения квалификации Минфина РБ.
+              </p>
+            </div>
+            
+            <div class="hidden md:block">
+              <p class="typography_body mb-4">
+                Аудитор с 2003 года, СЕРТИФИКАТ о прохождении специальной подготовки в области МСФО 
+                на право проведения обязательного аудита годовой бухгалтерской (финансовой) отчетности, 
+                составленной в соответствии с Международными стандартами финансовой отчетности № 019, 
+                выдан Государственным учреждением образования «Центр повышения квалификации руководящих 
+                работников и специалистов Министерства финансов Республики Беларусь».
+              </p>
+            </div>
+            
+            <button class="text-[var(--primary-color)] font-semibold flex items-center gap-2 view-certificates hover:underline text-sm md:text-base" data-person="bukova">
+              Смотреть сертификаты
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="flex items-start gap-4 md:gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-16 h-16 md:w-20 md:h-20 gradient-bg rounded-2xl flex items-center justify-center text-white text-xl md:text-2xl font-bold">
+              БС
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-lg md:text-xl font-semibold mb-2">Бутько Светлана Сергеевна</h3>
+            
+            <div class="md:hidden">
+              <p class="typography_body mb-3">
+                Аудитор с 2004 года. Сертифицированный специалист по МСФО. 
+                Сертификат №020 Центра повышения квалификации Минфина РБ.
+              </p>
+            </div>
+            
+            <div class="hidden md:block">
+              <p class="typography_body mb-4">
+                Аудитор с 2004 года, СЕРТИФИКАТ о прохождении специальной подготовки в области МСФО 
+                на право проведения обязательного аудита годовой бухгалтерской (финансовой) отчетности, 
+                составленной в соответствии с Международными стандартами финансовой отчетности № 020, 
+                выдан Государственным учреждением образования «Центр повышения квалификации руководящих 
+                работников и специалистов Министерства финансов Республики Беларусь».
+              </p>
+            </div>
+            
+            <button class="text-[var(--primary-color)] font-semibold flex items-center gap-2 view-certificates hover:underline text-sm md:text-base" data-person="butko">
+              Смотреть сертификаты
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 bg-gray-50 rounded-2xl p-8">
+      <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600 mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <p class="text-gray-600">
+          Все сертификаты подтверждают право наших специалистов на проведение обязательного аудита 
+          годовой бухгалтерской отчетности в соответствии с требованиями законодательства Республики Беларусь 
+          и международными стандартами.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="modal" id="certificates-modal">
+  <div class="modal-content">
+    <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+      <h3 class="text-xl font-semibold" id="modal-title">Сертификаты</h3>
+      <button class="modal-close text-2xl" aria-label="Закрыть">×</button>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="certificates-container">
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="contacts" class="bg-[var(--text-primary)] text-white">
+  <div class="container mx-auto px-4 py-8 md:py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div class="text-center md:text-left">
+        <div class="flex justify-center md:justify-start items-center gap-3 mb-4">
+          <h3 class="text-xl font-bold">ООО АудитКонсалтинг</h3>
+        </div>
+        <p class="text-gray-400 mb-4 text-sm">Профессиональные аудиторские и консалтинговые услуги с 2002 года.</p>
+        <p class="text-gray-400 text-sm">УНП: 390260040</p>
+      </div>
+
+      <div class="text-center md:text-left -ml-[15px]">
+        <h4 class="text-lg font-semibold mb-4 flex items-center justify-center md:justify-start gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Контакты
+        </h4>
+        <div class="space-y-1 text-gray-400 text-sm ml-[10px] md:ml-0">
+          <p></p><a href="tel:+375297133784">+375 (29) 713-37-84</a></p>
+          <p></p><a href="tel:+375297133785">+375 (29) 713-37-85</a></p>
+          <p></p><a href="tel:+375295143787">+375 (29) 514-37-87</a></p>
+          <p></p><a href="tel:+375295143787">+375 (33) 913-37-87</a></p>
+        </div>
+      </div>
+
+      <div class="text-center md:text-left -ml-[15px]">
+        <h4 class="text-lg font-semibold mb-4 flex items-center justify-center md:justify-start gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Адрес
+        </h4>
+        <div class="space-y-1 text-gray-400 text-sm ml-[20px] md:ml-0">
+            <p>211440, Витебская обл.,</p>
+            <p>г. Новополоцк,</p>
+            <p>ул. Олимпийская, д. 2, пом. 1105</p>
+            <div class="flex justify-center md:justify-start items-start gap-2 mt-2" style="margin-top: 10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <p>auditkonsalting@mail.ru</p>
+            </div>
+        </div>
+        </div>
+
+      <div class="text-center md:text-left -ml-[15px]">
+        <h4 class="text-lg font-semibold mb-4 flex items-center justify-center md:justify-start gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Режим работы
+        </h4>
+        <div class="text-gray-400 text-sm ml-[20px] md:ml-0">
+          <p>Пн-Пт: 8:00 - 17:00</p>
+          <p>Сб-Вс: выходной</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 mt-8 pt-8 text-center text-gray-400 text-sm">
+      <p>© 2002- 2025, ООО «АудитКонсалтинг». Все права защищены.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="static/js/scripts.js"></script>
+
+</body>
+</html>
