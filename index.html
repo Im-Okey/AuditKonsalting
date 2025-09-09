@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html lang="ru">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>ООО АудитКонсалтинг - Аудиторские и консалтинговые услуги</title>
 <meta name="description" content="Профессиональные аудиторские и консалтинговые услуги в Беларуси. Аудит, бухгалтерский учет, налоговое консультирование, МСФО."/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" type="image/x-icon" href="static/img/icon.svg" />
-<link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="dist/output.css">
 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</noscript>
+
+<link rel="icon" type="image/x-icon" href="static/img/icon.svg" />
+
+<link rel="preload" href="dist/output.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="dist/output.css"></noscript>
+
+<link rel="dns-prefetch" href="https://images.unsplash.com">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 </head>
 
 <body class="bg-background">
@@ -70,9 +77,16 @@
 
 <main>
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" imagesrcset="" imagesizes="100vw">
+  
   <div class="absolute inset-0">
     <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-         alt="Аудит и консалтинг" class="w-full h-full object-cover">
+         alt="Аудит и консалтинг" 
+         class="w-full h-full object-cover"
+         fetchpriority="high"
+         loading="eager"
+         width="1920"
+         height="1080">
     <div class="absolute inset-0 hero-overlay"></div>
   </div>
   
@@ -734,7 +748,7 @@
   </div>
 </footer>
 
-<script src="static/js/scripts.js"></script>
+<script src="static/js/scripts.js" defer></script>
 
 </body>
 </html>
