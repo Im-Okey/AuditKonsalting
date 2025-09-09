@@ -130,3 +130,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.fonts.ready.then(function() {
+  document.documentElement.classList.add('font-loaded');
+});
+
+setTimeout(function() {
+  document.documentElement.classList.add('font-loaded');
+}, 1000);
