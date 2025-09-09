@@ -167,8 +167,12 @@
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0">
     <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-         alt="Аудит и консалтинг" class="w-full h-full object-cover">
-    <div class="absolute inset-0 hero-overlay"></div>
+        alt="Аудит и консалтинг" 
+        loading="eager"
+        fetchpriority="high"
+        width="1920"
+        height="1080">
+    <div class="hero-overlay"></div>
   </div>
   
   <div class="relative mt-6 z-10 text-center text-white container mx-auto px-4">
